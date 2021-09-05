@@ -1,11 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import post
+from .models import postblog
 # Create your views here.
 
 def home(request):
     Post={
-        "posts":post.objects.all()
+        "posts":postblog.objects.all()
     }
     return render(request,'blog/home.html',context=Post);
 

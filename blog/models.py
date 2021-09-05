@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 # Create your models here.
 
-class post(models.Model):
+class postblog(models.Model):
     title=models.CharField(max_length=50)
     content=models.TextField()
     date_posted=models.DateField(default=timezone.now)
