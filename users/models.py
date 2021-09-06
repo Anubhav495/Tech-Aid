@@ -3,10 +3,11 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 # Create your models here.
 
-class customuser(models.Model):
-    username = models.CharField( max_length=100 )
-    email = models.EmailField( )
-    pass1 = models.CharField( max_length=20 )
-    pass2 = models.CharField( max_length=20 )
+class profile(models.Model):
+    
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    image = models.ImageField(default="default.jpg", upload_to='profile_pics', height_field=None, width_field=None, max_length=None)
+
     def __str__(self):
-        return self.username
+        return self.user.username

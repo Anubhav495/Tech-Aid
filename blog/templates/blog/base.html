@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" style="padding-left:100px;padding-right:140px;font-weight: bold;" href="{% url 'blog-home' %}">
                 <img src="{% static 'blog/icon.jpg' %}" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                Django Blogs
+                Tech Aid
             </a>
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
@@ -29,8 +29,15 @@
                 <a class="navbar-brand" href="{% url 'blog-about' %}">About</a>
                 </li>
                 <li class="nav-item" style="padding-right: 10px">
-                <a class="btn btn-primary" style="padding-right: 10px; margin-left: 180px" href="#" role="button">Login</a>
-                <a class="btn btn-primary" href="{% url 'user-register' %}" role="button">Register</a>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-primary" style="padding-right: 10px; margin-left: 180px"
+                    href="{% url 'user-profile' %}" role="button">Profile</a>
+                    <a class="btn btn-primary" href="{% url 'user-logout' %}" role="button">Logout</a>
+                {% else %}
+                    <a class="btn btn-primary" style="padding-right: 10px; margin-left: 180px"
+                    href="{% url 'user-login' %}" role="button">Login</a>
+                    <a class="btn btn-primary" href="{% url 'user-register' %}" role="button">Register</a>
+                {% endif %}
                 </li>
             </ul>
             </div>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import customuser
 # Register your models here.
+from .models import profile
 
-admin.site.register(customuser)
+admin.site.register(profile)
